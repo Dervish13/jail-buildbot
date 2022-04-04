@@ -1,0 +1,10 @@
+---
+- name: restart buildbot
+  service:
+    name: buildbot
+    state: restarted
+
+- name: restart buildbot-worker
+  service:
+    name: buildbot-worker
+    state: restarted

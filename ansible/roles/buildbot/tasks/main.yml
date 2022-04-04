@@ -25,3 +25,16 @@
   template:
     src: master.cfg.j2
     dest: ~/master/master.cfg
+
+- name: start buildbot
+  service:
+    name: buildbot
+    state: started
+    enabled: yes
+
+- name: start buildbot-worker
+  service:
+    name: buildbot-worker
+    state: started
+    enabled: yes
+
