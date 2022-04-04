@@ -1,0 +1,27 @@
+---
+- name: install packages
+  with_items: "{{ packages }}"
+  package:
+    name: "{{ item.name }}"
+    state: latest
+
+- name: enable buildbot
+  template:
+    src: buildbot.j2
+    dest: /etc/rc.conf.d/buildbot
+
+- name: enable buildbot worker
+  template:
+    src: buildbot_worker.j2
+    dest: /etc/rc.conf.d/buildbot_worker
+
+- name: create buildbot master
+  command: buildbot create-master ~/master creates=~/master
+
+- name: create buildbot worker
+  command: buildbot-worker create-worker ~/worker localhost {{ worker_name }} {{ worker_password }} creates=~/worker
+
+- name: configure buildbot
+  template:
+    src: master.cfg.j2
+    dest: ~/master/master.cfg

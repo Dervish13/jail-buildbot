@@ -1,0 +1,13 @@
+---
+packages:
+  - name: py38-buildbot
+  - name: py38-buildbot-www
+  - name: py38-buildbot-worker
+  - name: py38-buildbot-console-view
+  - name: py38-buildbot-grid-view
+  - name: py38-buildbot-pkg
+  - name: py38-buildbot-waterfall-view
+  - name: git-lite
+
+worker_name: worker1
+worker_password: pass
