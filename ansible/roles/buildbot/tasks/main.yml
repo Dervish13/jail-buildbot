@@ -26,6 +26,12 @@
     src: master.cfg.j2
     dest: /root/master/master.cfg
 
+- name: change owner to buildbot
+  with_items: "{{ directory }}"
+  file:
+    path: "{{ item.name }}"
+    owner: buildbot
+
 - name: start buildbot
   service:
     name: buildbot

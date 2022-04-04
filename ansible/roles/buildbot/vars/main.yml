@@ -9,5 +9,9 @@ packages:
   - name: py38-buildbot-waterfall-view
   - name: git-lite
 
+directory:
+  - name: /root/master
+  - name: /root/worker
+
 worker_name: worker1
 worker_password: pass
